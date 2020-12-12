@@ -1,0 +1,8 @@
+parent set weight=4 returned 0
+child get total weight returned 4
+child get heaviest1 returned -10
+child set weight=5 returned 0
+child2 set weight=6 returned 0
+child get heaviest2 returned 2545
+parent get total weight returned 15
+parent get heaviest returned 2544
