@@ -32,9 +32,9 @@ asmlinkage int sys_get_total_weight(void) {
 
 asmlinkage int sys_set_weight(int weight) {
 	if (weight < 0) {
-		//errno = -EINVAL
-		//return -1;
-		return -EINVAL;
+		errno = -EINVAL
+		return -1;
+		//return -EINVAL;
 	}
 	//printk("Got weight %d as input\n", weight);
 	current->weight = weight;
@@ -42,7 +42,7 @@ asmlinkage int sys_set_weight(int weight) {
 	return 0;
 }
 
-asmlinkage pid_t sys_get_heaviest_child(void) {
+asmlinkage long sys_get_heaviest_child(void) {
 	struct task_struct *child;
         struct list_head *list;
 	int max_weight = 0;
@@ -57,9 +57,8 @@ asmlinkage pid_t sys_get_heaviest_child(void) {
         }
 
 	if ((int)max_pid == 0) {
-		//errno = -ECHILD;
-		//return -1;
-		return -ECHILD;
+		errno = -ECHILD;
+		return -1;
 	}	
 	return max_pid;
 }
