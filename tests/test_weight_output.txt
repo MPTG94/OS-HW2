@@ -1,0 +1,11 @@
+parent set weight=4 returned 0
+parent set weight=-1 returned -1
+parent errno after set weight=-1 is 22
+child get total weight returned 4
+child get heaviest1 returned -1
+child errno after heaviest1 is 10
+child set weight=5 returned 0
+child2 set weight=6 returned 0
+child get heaviest2 returned 2530
+parent get total weight returned 15
+parent get heaviest returned 2529

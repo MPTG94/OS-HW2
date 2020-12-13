@@ -4,8 +4,11 @@
 #include <cstdio>
 
 int main(){
-  int ret = syscall(334, 4);
+  long ret = syscall(334, 4);
   std::cout << "parent set weight=4 returned " << ret << "\n";
+  ret = syscall(334, -1);
+  std::cout << "parent set weight=-1 returned " << ret << "\n";
+  std::cout << "parent errno after set weight=-1 is " << errno << "\n";
   int fork_ret = fork();
   if (fork_ret < 0){
     std::cout << "fork failed";
@@ -16,6 +19,7 @@ int main(){
     std::cout << "child get total weight returned " << ret << "\n";
     ret = syscall(336);
     std::cout << "child get heaviest1 returned " << ret << "\n";
+    std::cout << "child errno after heaviest1 is " << errno << "\n";
     ret = syscall(334, 5);
     std::cout << "child set weight=5 returned " << ret << "\n";
     fork_ret = fork();
