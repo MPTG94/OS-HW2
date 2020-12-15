@@ -11,7 +11,7 @@ int main() {
 	assert(x == 0);
     x = get_heaviest_child();
 	cout << "should return error: " << x << endl;
-	assert(x == -10);
+	assert(x == -1);
     cout << "===== SUCCESS =====" << endl;
     return 0;
 }
